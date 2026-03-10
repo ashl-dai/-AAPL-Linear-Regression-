@@ -23,5 +23,8 @@ print(outliers)
 fig = px.scatter(df, y = "Close", title = 'Closing Price of AAPL Over the Past 10 Years')
 fig.show()
 
-csvFile = 'AAPL_Close_Price.csv'
-df['Close'].to_csv(csvFile, index = False)
+csvFile1 = 'AAPL_Close_Price.csv'
+df['Close'].to_csv(csvFile1, index = False)
+
+csvFile2 = 'AAPL_Stock_Info.csv'
+df.to_csv(csvFile2, index = False)
