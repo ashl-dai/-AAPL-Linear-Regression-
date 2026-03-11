@@ -13,4 +13,3 @@ def monthlyAvg(CSVfile, column, outputMean, columnName):
     average = pd.DataFrame(grouped_mean)
     average = average.rename(columns={column: columnName})
     average.to_csv(outputMean)
-    print(average.head(1))
