@@ -4,7 +4,8 @@ import numpy as np
 def yearBreakup(CSVfile, outputFile):
     df = pd.read_csv(CSVfile)
     df['Year-Month'] = df['Date'].str.split(" ").str[0].str[0:7] # New Column of Year and Month
-    df.to_csv(outputFile)
+    df = df.drop(columns='Date')
+    df.to_csv(outputFile, index = False)
 
 
 def monthlyAvg(CSVfile, column, outputMean, columnName):
