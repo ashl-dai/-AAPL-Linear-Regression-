@@ -7,8 +7,10 @@ def yearBreakup(CSVfile, outputFile):
     df.to_csv(outputFile)
 
 
-def monthlyAvg(CSVfile, outputMean):
+def monthlyAvg(CSVfile, column, outputMean, columnName):
     df = pd.read_csv(CSVfile)
-    grouped_mean = df.groupby('Year-Month')['Close'].mean()
+    grouped_mean = df.groupby('Year-Month')[column].mean()
     average = pd.DataFrame(grouped_mean)
+    average = average.rename(columns={column: columnName})
     average.to_csv(outputMean)
+    print(average.head(1))
