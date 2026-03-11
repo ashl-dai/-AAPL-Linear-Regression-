@@ -16,11 +16,6 @@ def lnPlot(CSVfile, columnName):
     plt.title('QQ Plot of Log-Transformed Data')
     plt.show()
 
-import pandas as pd
-import numpy as np
-import plotly.express as px
-from scipy import stats
-
 def plotLineFit(CSVFile, columnName):
     df = pd.read_csv(CSVFile)
     data = df[columnName]
