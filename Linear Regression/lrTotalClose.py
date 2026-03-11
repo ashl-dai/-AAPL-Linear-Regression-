@@ -10,6 +10,7 @@ from sklearn.linear_model import LinearRegression
 def lnFit(CSVfile, columnName, outputFile):
     df = pd.read_csv(CSVfile)
     df['Log-Data'] = np.log(df[columnName])
+    df = df.drop(columns=['Unnamed: 0'])
     df.to_csv(outputFile)
     return df
     
