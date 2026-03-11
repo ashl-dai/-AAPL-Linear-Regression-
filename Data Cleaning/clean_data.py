@@ -1,5 +1,4 @@
 import yfinance as yf
-import plotly.express as px
 
 aapl = yf.Ticker('AAPL') # Ticker for stock
 df = aapl.history(period = '10y') # Dataset from 2016-03-11 to 2026-03-10
@@ -19,9 +18,6 @@ upper_bound = Q3 + 1.5 * IQR # Checking to see outlier
 
 outliers = df[(df < lower_bound) | (df > upper_bound)]
 print(outliers)
-
-fig = px.scatter(df, y = "Close", title = 'Closing Price of AAPL Over the Past 10 Years')
-fig.show()
 
 csvFile1 = '../Data/AAPL_Close_Price.csv'
 df['Close'].to_csv(csvFile1, index = True)
